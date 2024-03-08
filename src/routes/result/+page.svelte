@@ -10,7 +10,7 @@
 </script>
 
 <div
-	style="position: fixed; top: -50px; left: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; overflow: hidden;"
+	style="position: fixed; z-index:2; top: -50px; left: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; overflow: hidden;"
 >
 	<Confetti
 		x={[-5, 5]}
@@ -23,15 +23,17 @@
 	/>
 </div>
 <div class="h-screen w-screen">
-    <BackgroundGradient className='w-full h-full' containerClassName='w-full h-full flex-1 rounded-none'>
-    	<div class="flex flex-col gap-y-4 justify-center items-center h-full">
-    	    <h1 class="text-2xl">congrats! you're a gay</h1>
-        	{#if hover}
-        		<p onmouseleave={() => changeHover(false)}>me too</p>
-        	{:else}
-        		<Skeleton class="h-6 w-20" onmouseover={() => changeHover(true)} />
-        	{/if}
-    	</div>
-    </BackgroundGradient>
-    
+	<BackgroundGradient
+		className="w-full h-full"
+		containerClassName="w-full h-full flex-1 rounded-none"
+	>
+		<div class="flex h-full flex-col items-center justify-center gap-y-4">
+			<h1 class="text-2xl">congrats! you're a gay</h1>
+			{#if hover}
+				<p onmouseleave={() => changeHover(false)}>me too</p>
+			{:else}
+				<Skeleton class="h-6 w-20" onmouseover={() => changeHover(true)} />
+			{/if}
+		</div>
+	</BackgroundGradient>
 </div>
